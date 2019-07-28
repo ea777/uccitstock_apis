@@ -8,13 +8,28 @@ const router = app => {
         });
     });
 
-    // Display all switchea
-    app.get('/switches', (request, response) => {
+    // Display all switches
+    app.get('/switch', (request, response) => {
     	pool.query('SELECT * FROM switch', (error, result) => {
         	if (error) throw error;
             	response.send(result);
     	});
     });		
+    
+// Display all Wi-Fi Access Points
+    app.get('/accesspoint', (request, response) => {
+    	pool.query('SELECT * FROM accesspoint', (error, result) => {
+        	if (error) throw error;
+            	response.send(result);
+    	});
+    });	
+    // Display all Power Supplies
+    app.get('/powersupply', (request, response) => {
+    	pool.query('SELECT * FROM powersupply', (error, result) => {
+        	if (error) throw error;
+            	response.send(result);
+    	});
+    });	
     
     // // Display all sensors
     // app.get('/count_sensors', (request, response) => {
