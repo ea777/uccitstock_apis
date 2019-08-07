@@ -30,6 +30,15 @@ const router = app => {
             	response.send(result);
     	});
     });	
+
+    // Display all the details for the switch of the id I passed in.
+    app.get('/switch/:id/', (request, response) => {
+	const id = request.params.id;
+        pool.query('SELECT * FROM switch WHERE idswitch = ?', id, (error, result) => {
+                if (error) throw error;
+                response.send(result);
+        });
+    });	
     
     // // Display all sensors
     // app.get('/count_sensors', (request, response) => {
