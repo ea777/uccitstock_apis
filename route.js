@@ -49,6 +49,14 @@ const router = app => {
         });
     });	
 	
+	 app.delete("/powersupply/:id",(req,res)=>{
+        const id = request.params.id;
+        pool.query('SELECT * FROM accesspoint WHERE idaccesspoint = ?', id, (error, result) => {
+                if (error) throw error;
+                response.send(result);
+        });
+    });	
+	
 	
 	 // Display all the details for the powersupply of the id I passed in.
     app.get('/powersupply/:id/', (request, response) => {
