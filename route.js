@@ -43,7 +43,7 @@ const router = app => {
 	 // Display all the details for the accesspoint of the id I passed in.
     app.get('/accesspoint/:id/', (request, response) => {
 	const id = request.params.id;
-        pool.query('SELECT * FROM accesspoint WHERE idaccesspoint = ?', id, (error, result) => {
+        pool.query('SELECT * FROM accesspoint WHERE idaccesspoints = ?', id, (error, result) => {
                 if (error) throw error;
                 response.send(result);
         });
