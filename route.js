@@ -51,7 +51,7 @@ const router = app => {
 	
 	 app.delete("/powersupply/:id",(req,res)=>{
         const id = request.params.id;
-        pool.query('SELECT * FROM accesspoint WHERE idaccesspoint = ?', id, (error, result) => {
+        pool.query('SELECT * FROM powersupply WHERE idpowersupply = ?', id, (error, result) => {
                 if (error) throw error;
                 response.send(result);
         });
