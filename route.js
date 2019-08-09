@@ -59,7 +59,7 @@ const router = app => {
         });
     });	
 	
-	 // Display all the details for the powersupply of the id I passed in.
+	 // Delete all the details for the powersupply of the id I passed in.
     app.get('/delete_switch/:id/', (request, response) => {
 	const id = request.params.id;
         pool.query('DELETE FROM switch WHERE idswitch = ?', id, (error, result) => {
@@ -68,6 +68,27 @@ const router = app => {
         });
     });	
     
+	
+	
+       // Delete all the details for the powersupply of the id I passed in.
+    app.get('/delete_accesspoint/:id/', (request, response) => {
+	const id = request.params.id;
+        pool.query('DELETE FROM accesspoint WHERE idaccesspoints = ?', id, (error, result) => {
+                if (error) throw error;
+                response.send(result);
+        });
+    });	
+	
+	
+	
+	 // Delete all the details for the powersupply of the id I passed in.
+    app.get('/delete_powersupply/:id/', (request, response) => {
+	const id = request.params.id;
+        pool.query('DELETE FROM powersupply WHERE idpowersupply = ?', id, (error, result) => {
+                if (error) throw error;
+                response.send(result);
+        });
+    });	
     // // Display all sensors
     // app.get('/count_sensors', (request, response) => {
     //     pool.query('SELECT count( DISTINCT(device_id) ) as no_of_sensors FROM firefly_heroku_app_usersensor', (error, result) => {
