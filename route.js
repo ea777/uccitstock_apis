@@ -70,7 +70,7 @@ const router = app => {
     
 	
 	
-       // Delete all the details for the powersupply of the id I passed in.
+       // Delete all the details for the accesspoint of the id I passed in.
     app.get('/delete_accesspoint/:id/', (request, response) => {
 	const id = request.params.id;
         pool.query('DELETE FROM accesspoint WHERE idaccesspoints = ?', id, (error, result) => {
