@@ -89,6 +89,26 @@ const router = app => {
                 response.send(result);
         });
     });	
+	
+	// update details for the switch of the id I passed in.
+    app.put('/update_switch/:id/', (request, response) => {
+	const id = request.params.id;
+	const q = 'UPDATE switch SET ' +
+		'type = "' + request.body.type + 
+		'", model = "' + request.body.model +
+		'", status = "' + request.body.status +
+		'", issues = "' + request.body.issues +
+		'" WHERE idswitch = ' + id;
+		
+		console.log(q);
+		
+        pool.query(q, (error, result) => {
+                if (error) throw error;
+                response.send(result);
+        });
+    });	
+	
+	
     // // Display all sensors
     // app.get('/count_sensors', (request, response) => {
     //     pool.query('SELECT count( DISTINCT(device_id) ) as no_of_sensors FROM firefly_heroku_app_usersensor', (error, result) => {
