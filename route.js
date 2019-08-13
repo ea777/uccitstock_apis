@@ -109,6 +109,49 @@ const router = app => {
     });	
 	
 	
+	
+	// update details for the accesspoint of the id I passed in.
+    app.put('/update_accesspoint/:id/', (request, response) => {
+	const id = request.params.id;
+	const q = 'UPDATE accesspoint SET ' +
+		'type = "' + request.body.type + 
+		'", model = "' + request.body.model +
+		'", status = "' + request.body.status +
+		'", issues = "' + request.body.issues +
+		'" WHERE idaccesspoints = ' + id;
+		
+		console.log(q);
+		
+        pool.query(q, (error, result) => {
+                if (error) throw error;
+                response.send(result);
+        });
+    });	
+	
+	
+	// update details for the powersupply of the id I passed in.
+    app.put('/update_powersupply/:id/', (request, response) => {
+	const id = request.params.id;
+	const q = 'UPDATE powersupply SET ' +
+		'type = "' + request.body.type + 
+		'", model = "' + request.body.model +
+		'", status = "' + request.body.status +
+		'", issues = "' + request.body.issues +
+		'" WHERE idpowersupply = ' + id;
+		
+		console.log(q);
+		
+        pool.query(q, (error, result) => {
+                if (error) throw error;
+                response.send(result);
+        });
+    });	
+	
+	
+	
+	
+	
+	
     // // Display all sensors
     // app.get('/count_sensors', (request, response) => {
     //     pool.query('SELECT count( DISTINCT(device_id) ) as no_of_sensors FROM firefly_heroku_app_usersensor', (error, result) => {
