@@ -152,13 +152,13 @@ const router = app => {
 	// update details for the powersupply of the id I passed in.
     app.post('/add_switch/:id/', (request, response) => {
 	const id = request.params.id;
-	const q = 'ADD switch SET ' +
-		'type = "' + request.body.type + 
-		'", model = "' + request.body.model +
-		'", status = "' + request.body.status +
-		'", issues = "' + request.body.issues +
-		'" WHERE idswitch = ' + id;
-		
+	const q = 'INSERT INTO switch ("type", "model", "status", "issues") VALUES ( ' +
+		 request.body.type + ',' +
+		 request.body.model + ',' +
+		request.body.status + ',' +
+		request.body.issues +' 
+		')'
+	
 		console.log(q);
 		
         pool.query(q, (error, result) => {
