@@ -152,12 +152,12 @@ const router = app => {
 	// update details for the powersupply of the id I passed in.
     app.post('/add_switch/', (request, response) => {
 	const id = request.params.id;
-	const q = 'INSERT INTO switch ("type", "model", "status", "issues") VALUES ( ' +
+	const q = 'INSERT INTO switch (type, model, status, issues) VALUES ( ' +
 		 '"' + request.body.type + '", "' +
 		 request.body.model + '", "' +
 		request.body.status + '" , "' +
 		request.body.issues + 
-		'")'
+		'");'
 	
 		console.log(q);
 		
