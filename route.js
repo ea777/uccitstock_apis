@@ -153,11 +153,11 @@ const router = app => {
     app.post('/add_switch/:id/', (request, response) => {
 	const id = request.params.id;
 	const q = 'INSERT INTO switch ("type", "model", "status", "issues") VALUES ( ' +
-		 request.body.type + ',' +
-		 request.body.model + ',' +
-		request.body.status + ',' +
-		request.body.issues +' 
-		')'
+		 '"' + request.body.type + '", "' +
+		 request.body.model + '", "' +
+		request.body.status + '" , "' +
+		request.body.issues + 
+		'")'
 	
 		console.log(q);
 		
